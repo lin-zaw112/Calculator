@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --BGC: #304649;
+  --equal: #1c2826;
+  --operator: #4c6471;
+  --BTN: #e3fffa;
+  --Text: #000;
+  /* color-scheme: light dark; */
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.calc {
+  max-width: 20rem;
+  height: 30rem;
+  background-color: var(--BGC);
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 35px;
+}
+.countedNum {
+  width: 100%;
+  background-color: #00000050;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2.5rem;
+  border: none;
+  height: 4rem;
+  pointer-events: none;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  padding: 12px;
+  color: rgb(216, 203, 203);
+  overflow: hidden;
+}
+.countedNum[value] {
+  padding-left: 1rem;
+}
+.col-1 {
+  width: 20rem;
+  height: 26rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas: "AC AC theme theme" "clear openB  closeB slash" "seven eight nine muti" "four five six minus" "one two three plus" "zeo zeo dott equal";
+  grid-gap: 1rem;
+  padding: 1rem;
+}
+.card {
+  background-color: var(--BTN);
+  border: none;
+  font-size: 1.5rem;
+  color: var(--Text);
+  border-radius: 1.1rem;
+}
+.card:active {
+  background-color: var(--BGC) !important;
+}
+.card:hover {
+  cursor: pointer;
+}
+.card:nth-child(1) {
+  grid-area: zeo;
+}
+.card:nth-child(2) {
+  grid-area: one;
+}
+.card:nth-child(3) {
+  grid-area: two;
+}
+.card:nth-child(4) {
+  grid-area: three;
+}
+.card:nth-child(5) {
+  grid-area: four;
+}
+.card:nth-child(6) {
+  grid-area: five;
+}
+.card:nth-child(7) {
+  grid-area: six;
+}
+.card:nth-child(8) {
+  grid-area: seven;
+}
+.card:nth-child(9) {
+  grid-area: eight;
+}
+.card:nth-child(10) {
+  grid-area: nine;
+}
+.card:nth-child(11) {
+  grid-area: dott;
+}
+.card:nth-child(12) {
+  grid-area: equal;
+  background-color: var(--equal);
+  color: rgb(150, 147, 147);
+}
+.card:nth-child(13) {
+  grid-area: plus;
+  background-color: var(--operator);
+  color: var(--BGC);
+}
+.card:nth-child(14) {
+  grid-area: minus;
+  background-color: var(--operator);
+  color: var(--BGC);
+}
+.card:nth-child(15) {
+  grid-area: muti;
+  background-color: var(--operator);
+  color: var(--BGC);
+}
+.card:nth-child(16) {
+  grid-area: slash;
+  background-color: var(--operator);
+  color: var(--BGC);
+}
+.card:nth-child(17) {
+  grid-area: closeB;
+}
+.card:nth-child(18) {
+  grid-area: clear;
+}
+.card:nth-child(19) {
+  grid-area: openB;
+}
+.card:nth-child(20) {
+  grid-area: AC;
+}
+.card:nth-child(21) {
+  grid-area: theme;
+}
+
+.card:nth-child(21):active {
+  color-scheme: dark;
+}
