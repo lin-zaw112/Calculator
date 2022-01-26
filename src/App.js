@@ -28,7 +28,14 @@ const App = () => {
         }
         break;
       case "=":
-        setsum(eval(sum.join("").replace(/x/g, "*")) && setValid(false));
+        {
+          if (isNaN(eval(sum.join("").replace(/x/g, "*")))) {
+            setValid(false);
+            return;
+          } else {
+            setsum(String(eval(sum.join("").replace(/x/g, "*"))));
+          }
+        }
         break;
       default:
         setsum([...sum, input]);
@@ -39,24 +46,44 @@ const App = () => {
     // };
   };
   return (
-    <div className={classes.calc}>
-      <h1 className={classes.countedNum}>{sum}</h1>
-      <div className={classes["col-1"]}>
-        {Strs.map((str) => {
-          return (
-            <button
-              type="button"
-              className={classes.card}
-              onClick={clickHandler}
-              key={str}
-            >
-              {str !== Sun && str !== Moon ? str : <div id="svg">{str}</div>}
-            </button>
-          );
-        })}
+    <React.Fragment>
+      <div className={classes[`ripple-background`]}>
+        <div
+          className={`${classes.circle} ${classes.xxlarge} ${classes.shade1}`}
+        ></div>
+        <div
+          className={`${classes.circle} ${classes.xlarge} ${classes.shade2}`}
+        ></div>
+        <div
+          className={`${classes.circle} ${classes.large} ${classes.shade3}`}
+        ></div>
+        <div
+          className={`${classes.circle} ${classes.mediun} ${classes.shade4}`}
+        ></div>
+        <div
+          className={`${classes.circle} ${classes.small} ${classes.shade5}`}
+        ></div>
       </div>
-      <Error valid={setValid} inValid={Valid}></Error>
-    </div>
+
+      <div className={classes.calc}>
+        <h1 className={classes.countedNum}>{sum}</h1>
+        <div className={classes["col-1"]}>
+          {Strs.map((str) => {
+            return (
+              <button
+                type="button"
+                className={classes.card}
+                onClick={clickHandler}
+                key={str}
+              >
+                {str !== Sun && str !== Moon ? str : <div id="svg">{str}</div>}
+              </button>
+            );
+          })}
+        </div>
+        <Error valid={setValid} inValid={Valid}></Error>
+      </div>
+    </React.Fragment>
   );
 };
 export default App;
